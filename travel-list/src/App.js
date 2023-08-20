@@ -21,8 +21,16 @@ function Logo() {
 }
 
 function Form() {
+  function handleSubmit(e) {
+    // avoid reloading
+    e.preventDefault();
+  }
+
   return (
-    <div className="add-form">
+    // submit event happens if button is clicked or enter is hit
+    // usually involves a brief flash and page reload
+    // onSubmit include click and enter while onClick only deals with click
+    <div className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your trip? 😍</h3>
       <select>
         {/* (_, i) is like a map function. inside it, _ is the current value, i is the index */}
