@@ -24,6 +24,17 @@ function Form() {
   return (
     <div className="add-form">
       <h3>What do you need for your trip? 😍</h3>
+      <select>
+        {/* (_, i) is like a map function. inside it, _ is the current value, i is the index */}
+        {/* when rendering a list, need to give each element a unique key */}
+        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+          <option value={num} key={num}>
+            {num}
+          </option>
+        ))}
+      </select>
+      <input type="text" placeholder="Item..." />
+      <button>ADD</button>
     </div>
   );
 }
@@ -34,7 +45,7 @@ function PackingList() {
       <ul>
         {initialItems.map((item) => (
           // <name of component / name of prop / object itself (argument in each iteration over the array)
-          <Item item={item} />
+          <Item item={item} key={item.id} />
         ))}
       </ul>
     </div>
