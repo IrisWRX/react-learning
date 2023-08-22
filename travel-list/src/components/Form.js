@@ -27,7 +27,7 @@ export default function Form({ onAddItems }) {
       {/* e.target.value comes from the value={num} in <option> */}
       <select
         value={quantity}
-        // to get the number instead of a string
+        // get the number instead of a string
         onChange={(e) => setQuantity(Number(e.target.value))}
       >
         {/* (_, i) is like a map function. inside it, _ is the current value, i is the index */}

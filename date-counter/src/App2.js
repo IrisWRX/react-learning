@@ -1,4 +1,3 @@
-import "./styles.css";
 import { useState } from "react";
 
 export default function App() {
@@ -17,6 +16,7 @@ function Counter() {
     setCount(0);
     setStep(1);
   }
+
   const date = new Date();
   date.setDate(date.getDate() + count);
 
