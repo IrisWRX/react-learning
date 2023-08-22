@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function App() {
   return (
     <div>
@@ -7,9 +9,11 @@ export default function App() {
 }
 
 function TipCalculator() {
+  const [bill, setBill] = useState("");
+
   return (
     <div>
-      <BillInput />
+      <BillInput bill={bill} onSetBill={setBill} />
       <SelectPercentage>How did you like the service?</SelectPercentage>
       <SelectPercentage>How did your friend like the service?</SelectPercentage>
       <Output />
@@ -18,11 +22,16 @@ function TipCalculator() {
   );
 }
 
-function BillInput() {
+function BillInput({ bill, onSetBill }) {
   return (
     <div>
       <p>How much was the bill?</p>
-      <input type="text" placeholder="Bill value" />
+      <input
+        type="text"
+        placeholder="Bill value"
+        value={bill}
+        onChange={(e) => onSetBill(Number(e.target.value))}
+      />
     </div>
   );
 }
