@@ -13,6 +13,7 @@ function TipCalculator() {
   const [percentage1, setPercentage1] = useState(0);
   const [percentage2, setPercentage2] = useState(0);
 
+  // derived state
   const tip = bill * ((percentage1 + percentage2) / 2 / 100);
 
   function handleReset() {
@@ -30,7 +31,9 @@ function TipCalculator() {
       <SelectPercentage percentage={percentage2} onSelect={setPercentage2}>
         How did your friend like the service?
       </SelectPercentage>
+
       {bill > 0 && (
+        // need fragment to wrap up the jsx
         <>
           <Output bill={bill} tip={tip} />
           <Reset onReset={handleReset} />
@@ -43,6 +46,7 @@ function TipCalculator() {
 function BillInput({ bill, onSetBill }) {
   return (
     <div>
+      {/* label is inline element */}
       <label>How much was the bill?</label>
       <input
         type="text"
