@@ -65,6 +65,13 @@ export default function App() {
       </Navbar>
       <Main>
         {/* make reusable component(box) using composition */}
+        <Box>
+          <MovieList movies={movies} />
+        </Box>
+        <Box>
+          <WatchedSummary watched={watched} />
+          <WatchedMoviesList watched={watched} />
+        </Box>
         {/* passing elements as props(alternative to children) */}
         {/* <Box element={<MovieList movies={movies} />} />
         <Box
@@ -75,13 +82,6 @@ export default function App() {
             </>
           }
         /> */}
-        <Box>
-          <MovieList movies={movies} />
-        </Box>
-        <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
-        </Box>
       </Main>
     </>
   );
@@ -126,8 +126,8 @@ function Main({ children }) {
   return <main className="main">{children}</main>;
 }
 
-// function Box({ element }) {
 function Box({ children }) {
+  // function Box({ element }) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -138,8 +138,8 @@ function Box({ children }) {
       {/* just render the children prop
       no need to create a new object
       do not use {children} */}
-      {/* {isOpen && element} */}
       {isOpen && children}
+      {/* {isOpen && element} */}
     </div>
   );
 }
